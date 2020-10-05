@@ -22,7 +22,7 @@ export class UserDetails extends Component {
             handleSubmitUserDetails
           ) => (
             <form onSubmit={handleSubmitUserDetails}>
-              <div>
+              <div className="inputfield">
                 <TextField
                   onChange={handleInput("username")}
                   style={styles.input}
@@ -32,7 +32,7 @@ export class UserDetails extends Component {
                   variant="outlined"
                 />
               </div>
-              <div>
+              <div className="inputfield">
                 <TextField
                   onChange={handleInput("bio")}
                   style={styles.input}
@@ -42,15 +42,17 @@ export class UserDetails extends Component {
                   variant="outlined"
                 />
               </div>
-              <TextField
-                onChange={handleInput("email")}
-                style={styles.input}
-                label="E-mail"
-                defaultValue={email}
-                helperText={errors.email ? errors.email : undefined}
-                variant="outlined"
-              />
-              <div>
+              <div className="inputfield">
+                <TextField
+                  onChange={handleInput("email")}
+                  style={styles.input}
+                  label="E-mail"
+                  defaultValue={email}
+                  helperText={errors.email ? errors.email : undefined}
+                  variant="outlined"
+                />
+              </div>
+              <div className="inputfield">
                 <TextField
                   onChange={handleInput("phone")}
                   style={styles.input}
@@ -60,7 +62,7 @@ export class UserDetails extends Component {
                   variant="outlined"
                 />
               </div>
-              <div>
+              <div className="inputfield">
                 <button className="nextbtn" onClick={handleSubmitUserDetails}>
                   Next
                 </button>

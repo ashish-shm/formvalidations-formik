@@ -36,18 +36,18 @@ export class UserFormik extends Component {
 
     if ((await username.length) >= 6) {
       await this.setState({
-        errors: { username: "" },
+        errors: { ...this.state.errors, username: "" },
       });
-      console.log(username);
+
       return true;
     } else {
       await this.setState({
         errors: {
+          ...this.state.errors,
           username: "Enter atleast 6 characters",
         },
       });
-      console.log(this.state);
-      console.log("username false");
+
       return false;
     }
   };
@@ -57,18 +57,15 @@ export class UserFormik extends Component {
 
     if ((await bio.length) >= 6) {
       await this.setState({
-        errors: { bio: "" },
+        errors: { ...this.state.errors, bio: "" },
       });
-      console.log(this.state);
+
       return true;
     } else {
       await this.setState({
-        errors: {
-          bio: "Enter atleast 6 characters",
-        },
+        errors: { ...this.state.errors, bio: "Enter atleast 6 characters" },
       });
-      console.log("bio false");
-      console.log(this.state);
+
       return false;
     }
   };
@@ -79,17 +76,15 @@ export class UserFormik extends Component {
     let { email } = this.state;
     if (await re.test(email)) {
       await this.setState({
-        errors: { email: "" },
+        errors: { ...this.state.errors, email: "" },
       });
-      console.log(re);
+
       return true;
     } else {
       await this.setState({
-        errors: {
-          email: "Enter a valid email",
-        },
+        errors: { ...this.state.errors, email: "Enter a valid email" },
       });
-      console.log("re flase");
+
       return false;
     }
   };
@@ -99,20 +94,23 @@ export class UserFormik extends Component {
 
     if (
       (await phone.length) === 10 &&
-      (await Number(phone.split("").shift())) === 9
+      ((await Number(phone.split("").shift())) === 9 ||
+        (await Number(phone.split("").shift())) === 8 ||
+        (await Number(phone.split("").shift())) === 7)
     ) {
       await this.setState({
-        errors: { phone: "" },
+        errors: { ...this.state.errors, phone: "" },
       });
-      console.log(phone);
+
       return true;
     } else {
       await this.setState({
         errors: {
+          ...this.state.errors,
           phone: "Enter a valid number starting with 9",
         },
       });
-      console.log(" phone false");
+
       return false;
     }
   };
