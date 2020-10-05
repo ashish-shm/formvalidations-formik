@@ -1,18 +1,26 @@
 import React, { Component } from "react";
 import TextField from "@material-ui/core/TextField";
 import UserFormik from "./UserFormik";
+import { Header } from "./Header";
 import "./style.css";
 
 export class UserDetails extends Component {
   render() {
     return (
       <>
+        <Header title="Profile Information" />
         <UserFormik>
           {(
             username,
             email,
             phone,
             bio,
+            fname,
+            lname,
+            pin,
+            country,
+            address,
+            city,
             errors,
             isBioValid,
             isEmailValid,

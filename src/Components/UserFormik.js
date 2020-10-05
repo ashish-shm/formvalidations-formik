@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import UserDetails from "./UserDetails";
-import { Header } from "./Header";
 
 export class UserFormik extends Component {
   state = {
@@ -9,11 +7,23 @@ export class UserFormik extends Component {
     bio: "",
     email: "",
     phone: "",
+    country: "India",
+    pin: "",
+    fname: "",
+    lname: "",
+    address: "",
+    city: "",
     errors: {
       username: "",
       bio: "",
       email: "",
       phone: "",
+      country: "India",
+      pin: "",
+      fname: "",
+      lname: "",
+      address: "",
+      city: "",
     },
   };
 
@@ -130,7 +140,20 @@ export class UserFormik extends Component {
   };
 
   render() {
-    const { step, username, email, phone, bio, errors } = this.state;
+    const {
+      step,
+      username,
+      email,
+      phone,
+      bio,
+      fname,
+      lname,
+      pin,
+      country,
+      address,
+      city,
+      errors,
+    } = this.state;
     const {
       isBioValid,
       isEmailValid,
@@ -147,6 +170,12 @@ export class UserFormik extends Component {
           email,
           phone,
           bio,
+          fname,
+          lname,
+          pin,
+          country,
+          address,
+          city,
           errors,
           isBioValid,
           isEmailValid,
